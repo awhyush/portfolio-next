@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import Background from "@/components/Background";
+import ResumeOverlay from "@/components/ResumeOverlay";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-black text-white font-inter selection-red relative overflow-x-hidden">
         <Background />
         <div className="gradient-blur" />
+        <ResumeOverlay />
         <div className="relative z-10 flex min-h-full flex-1 flex-col">
           {children}
         </div>

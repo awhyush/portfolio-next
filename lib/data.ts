@@ -1,11 +1,10 @@
 export const profile = {
-  name: "Ayush Sharma",
+  name: "ayush sharma",
   role: "Software Engineer · Full-Stack Developer",
   tagline:
     "Software engineer with 2+ years shipping web applications with React.js, TypeScript, Node.js, and Java Spring Boot — from performance optimization to CI/CD deployment across healthcare and fintech products.",
   location: "India",
   email: "workxayush@gmail.com",
-  website: "https://awhyush.netlify.app",
   linkedin: "https://linkedin.com/in/awhyush",
   resumeUrl: "/resume.pdf",
   bio: [
@@ -25,8 +24,7 @@ export const projects: Project[] = [
   {
     slug: "metrofy",
     title: "Metrofy",
-    description:
-      "Metro route prediction web app for non-metro cities.",
+    description: "Metro route prediction web app for non-metro cities.",
     tags: ["React.js", "Leaflet.js", "Redux Toolkit", "CSS"],
     points: [
       "Built route-finding using Dijkstra's and Nearest Neighbor algorithms across 100+ mapped locations.",
@@ -55,7 +53,6 @@ export const skills: { category: string; items: string[] }[] = [
     category: "Backend",
     items: [
       "Spring Boot",
-      "Spring WebFlux",
       "Node.js",
       "REST APIs",
       "Microservices",
@@ -66,15 +63,13 @@ export const skills: { category: string; items: string[] }[] = [
     category: "Tools",
     items: [
       "MongoDB",
-      "Firebase",
-      "Jenkins",
+      "PostgreSQL",
       "CI/CD",
       "CDN",
       "Nginx",
       "Git",
       "Webpack",
       "Jest",
-      "Figma",
     ],
   },
   {
@@ -109,7 +104,17 @@ export const experience: {
       "Built a parameter-based release system for UAT, enabling parallel testing without additional deployments.",
       "Built a date-based versioning system on production enabling instant rollbacks via a release pointer change, removing the need for full Docker image redeployments.",
     ],
-    stack: ["React.js", "TypeScript", "Java", "Spring Boot", "Node.js", "Nginx", "REST APIs", "CDN", "Jest"],
+    stack: [
+      "React.js",
+      "TypeScript",
+      "Java",
+      "Spring Boot",
+      "Node.js",
+      "Nginx",
+      "REST APIs",
+      "CDN",
+      "Jest",
+    ],
   },
   {
     role: "Software Development Engineer",

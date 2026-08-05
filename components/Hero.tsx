@@ -1,7 +1,7 @@
-import { ArrowRight, Globe } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import { profile, skills } from "@/lib/data";
 
-const toolStrip = skills.flatMap((group) => group.items).slice(0, 6);
+const toolStrip = skills.flatMap((group) => group.items);
 
 export default function Hero() {
   return (
@@ -67,26 +67,29 @@ export default function Hero() {
           </a>
 
           <a
-            href={profile.website}
+            href="#resume-viewer"
             className="group px-8 py-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:text-white hover:bg-zinc-800 transition-all flex items-center gap-2"
           >
-            <Globe className="w-5 h-5" />
-            Visit my site
+            <FileText className="w-5 h-5" />
+            View resume
           </a>
         </div>
       </div>
 
-      <div className="w-full max-w-5xl mt-32 border-y border-white/5 bg-white/[0.02] backdrop-blur-sm py-10 opacity-60 hover:opacity-100 transition-opacity rounded-2xl">
-        <div className="px-6 flex flex-col md:flex-row items-center gap-8 md:gap-16">
-          <p className="text-sm font-bold tracking-widest text-zinc-500 uppercase shrink-0">
-            Tools I reach for:
-          </p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 items-center w-full">
-            {toolStrip.map((tool) => (
-              <div key={tool} className="flex items-center gap-2 font-manrope font-semibold">
-                <div className="w-6 h-6 bg-white/20 rounded-full" />
+      <div className="w-full max-w-5xl mt-32 border-y border-white/5 bg-white/[0.02] backdrop-blur-sm py-10 rounded-2xl">
+        <p className="text-center text-sm font-bold tracking-widest text-zinc-500 uppercase mb-6">
+          Tools I reach for
+        </p>
+        <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex w-max gap-3 animate-marquee group-hover:[animation-play-state:paused]">
+            {[...toolStrip, ...toolStrip].map((tool, i) => (
+              <span
+                key={`${tool}-${i}`}
+                className="flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-sm text-zinc-300 hover:border-[#ef233c]/50 hover:text-white transition-colors"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-[#ef233c]" />
                 {tool}
-              </div>
+              </span>
             ))}
           </div>
         </div>

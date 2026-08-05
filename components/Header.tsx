@@ -34,7 +34,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <a
-            href={profile.resumeUrl}
+            href="#resume-viewer"
             className="hidden md:block text-sm font-medium text-zinc-300 hover:text-white"
           >
             Resume

@@ -8,10 +8,9 @@ const platformLinks = [
 ];
 
 const elsewhereLinks = [
-  { href: profile.website, label: "Website" },
   { href: profile.linkedin, label: "LinkedIn" },
   { href: `mailto:${profile.email}`, label: "Email" },
-  { href: profile.resumeUrl, label: "Resume" },
+  { href: "#resume-viewer", label: "Resume" },
 ];
 
 export default function Footer() {
