@@ -1,11 +1,12 @@
-import { Code2, Layout, Server, Database } from "lucide-react";
+import { Code2, Layout, Server, Wrench, Brain } from "lucide-react";
 import { skills } from "@/lib/data";
 
 const icons: Record<string, typeof Code2> = {
   Languages: Code2,
   Frontend: Layout,
   Backend: Server,
-  "Data & Infra": Database,
+  Tools: Wrench,
+  "Core Concepts": Brain,
 };
 
 export default function Skills() {
@@ -18,7 +19,7 @@ export default function Skills() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {skills.map((group) => {
             const Icon = icons[group.category] ?? Code2;
             return (

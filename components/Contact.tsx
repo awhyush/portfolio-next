@@ -1,5 +1,5 @@
-import { Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import { Mail, Globe } from "lucide-react";
+import { LinkedinIcon } from "@/components/icons";
 import { profile } from "@/lib/data";
 
 export default function Contact() {
@@ -25,11 +25,11 @@ export default function Contact() {
             </span>
           </a>
           <a
-            href={profile.github}
+            href={profile.website}
             className="group w-full sm:w-auto px-8 py-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:text-white hover:bg-zinc-800 transition-all flex items-center justify-center gap-2"
           >
-            <GithubIcon className="w-4 h-4" />
-            GitHub
+            <Globe className="w-4 h-4" />
+            Website
           </a>
           <a
             href={profile.linkedin}

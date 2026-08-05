@@ -1,5 +1,4 @@
-import { ArrowRight } from "lucide-react";
-import { GithubIcon } from "@/components/icons";
+import { ArrowRight, Globe } from "lucide-react";
 import { profile, skills } from "@/lib/data";
 
 const toolStrip = skills.flatMap((group) => group.items).slice(0, 6);
@@ -17,7 +16,7 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ef233c]" />
           </span>
           <span className="text-xs font-medium text-red-100/90 tracking-wide font-manrope">
-            Open to {profile.role.toLowerCase()} roles
+            Open to new opportunities
           </span>
           <ArrowRight className="w-3 h-3 text-red-400" />
         </div>
@@ -68,11 +67,11 @@ export default function Hero() {
           </a>
 
           <a
-            href={profile.github}
+            href={profile.website}
             className="group px-8 py-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:text-white hover:bg-zinc-800 transition-all flex items-center gap-2"
           >
-            <GithubIcon className="w-5 h-5" />
-            View on GitHub
+            <Globe className="w-5 h-5" />
+            Visit my site
           </a>
         </div>
       </div>

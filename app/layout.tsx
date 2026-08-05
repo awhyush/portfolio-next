@@ -16,8 +16,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Portfolio",
-  description: "Full-stack software engineer portfolio.",
+  title: "Ayush Sharma — Portfolio",
+  description: "Software Engineer · Full-Stack Developer portfolio.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
