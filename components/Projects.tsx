@@ -1,4 +1,4 @@
-import { LayoutGrid } from "lucide-react";
+import { ExternalLink, LayoutGrid } from "lucide-react";
 import { projects } from "@/lib/data";
 
 export default function Projects() {
@@ -21,8 +21,19 @@ export default function Projects() {
                 <div className="mb-6 inline-flex p-3 rounded-lg bg-white/5 border border-white/10 text-[#ef233c] w-fit">
                   <LayoutGrid className="w-6 h-6" aria-hidden="true" />
                 </div>
-                <h3 className="text-3xl font-semibold text-white font-manrope mb-2 tracking-tight">
+                <h3 className="text-3xl font-semibold text-white font-manrope mb-2 tracking-tight flex items-center gap-3">
                   {project.title}
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-400 hover:text-[#ef233c] transition-colors"
+                      aria-label={`Visit ${project.title}`}
+                    >
+                      <ExternalLink className="w-5 h-5" aria-hidden="true" />
+                    </a>
+                  )}
                 </h3>
                 <p className="text-zinc-400 text-lg leading-relaxed mb-4">
                   {project.description}

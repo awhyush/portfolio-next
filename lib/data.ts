@@ -18,6 +18,7 @@ export type Project = {
   description: string;
   tags: string[];
   points: string[];
+  url?: string;
 };
 
 export const projects: Project[] = [
@@ -30,6 +31,17 @@ export const projects: Project[] = [
       "Built route-finding using Dijkstra's and Nearest Neighbor algorithms across 100+ mapped locations.",
       "Built an interactive map with geolocation-based view adjustments using Leaflet.js.",
     ],
+    url: "https://metrofy.netlify.app/",
+  },
+  {
+    slug: "ytayush",
+    title: "YTAyush",
+    description: "A YouTube clone built to practice and demonstrate React fundamentals.",
+    tags: ["React.js", "CSS"],
+    points: [
+      "Built as a personal learning project to explore React component architecture and state management.",
+    ],
+    url: "https://ytayush.netlify.app/",
   },
 ];
 
