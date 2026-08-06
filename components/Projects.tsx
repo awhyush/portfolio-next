@@ -19,7 +19,7 @@ export default function Projects() {
             >
               <div className="relative z-10">
                 <div className="mb-6 inline-flex p-3 rounded-lg bg-white/5 border border-white/10 text-[#ef233c] w-fit">
-                  <LayoutGrid className="w-6 h-6" />
+                  <LayoutGrid className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-semibold text-white font-manrope mb-2 tracking-tight">
                   {project.title}
@@ -30,7 +30,7 @@ export default function Projects() {
                 <ul className="mb-6 space-y-2 text-zinc-400">
                   {project.points.map((point) => (
                     <li key={point.slice(0, 20)} className="flex gap-2">
-                      <span className="text-[#ef233c]">—</span>
+                      <span className="text-[#ef233c]" aria-hidden="true">—</span>
                       {point}
                     </li>
                   ))}

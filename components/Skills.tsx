@@ -64,7 +64,7 @@ export default function Skills() {
                 <div
                   className={`mb-4 inline-flex p-3 rounded-lg bg-white/5 border border-white/10 ${style.text}`}
                 >
-                  <Icon className="w-6 h-6" />
+                  <Icon className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <h3 className="text-lg font-semibold text-white font-manrope mb-4">
                   {group.category}

@@ -11,14 +11,14 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 animate-fade-up"
           style={{ animationDelay: "0.1s" }}
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-2 w-2" aria-hidden="true">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ef233c]" />
           </span>
           <span className="text-xs font-medium text-red-100/90 tracking-wide font-manrope">
             Open to new opportunities
           </span>
-          <ArrowRight className="w-3 h-3 text-red-400" />
+          <ArrowRight className="w-3 h-3 text-red-400" aria-hidden="true" />
         </div>
 
         <h1
@@ -36,6 +36,7 @@ export default function Hero() {
                 className="absolute w-full h-3 -bottom-2 left-0 text-[#ef233c] opacity-60"
                 viewBox="0 0 100 10"
                 preserveAspectRatio="none"
+                aria-hidden="true"
               >
                 <path
                   d="M0 5 Q 50 10 100 5"
@@ -62,7 +63,7 @@ export default function Hero() {
           <a href="#projects" className="shiny-cta group">
             <span className="relative z-10 flex items-center gap-2 text-white font-medium">
               View my work
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </span>
           </a>
 
@@ -70,7 +71,7 @@ export default function Hero() {
             href="#resume-viewer"
             className="group px-8 py-4 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium hover:text-white hover:bg-zinc-800 transition-all flex items-center gap-2"
           >
-            <FileText className="w-5 h-5" />
+            <FileText className="w-5 h-5" aria-hidden="true" />
             View resume
           </a>
         </div>
@@ -80,7 +81,11 @@ export default function Hero() {
         <p className="text-center text-sm font-bold tracking-widest text-zinc-500 uppercase mb-6">
           Tools I reach for
         </p>
-        <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <p className="sr-only">{toolStrip.join(", ")}</p>
+        <div
+          className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+          aria-hidden="true"
+        >
           <div className="flex w-max gap-3 animate-marquee group-hover:[animation-play-state:paused]">
             {[...toolStrip, ...toolStrip].map((tool, i) => (
               <span

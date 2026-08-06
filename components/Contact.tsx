@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href={`mailto:${profile.email}`} className="shiny-cta group w-full sm:w-auto">
             <span className="relative z-10 flex items-center justify-center gap-2 text-white font-medium">
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4" aria-hidden="true" />
               Email me
             </span>
           </a>

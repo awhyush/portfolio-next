@@ -2,7 +2,7 @@ export const profile = {
   name: "ayush sharma",
   role: "Software Engineer · Full-Stack Developer",
   tagline:
-    "Software engineer with 2+ years shipping web applications with React.js, TypeScript, Node.js, and Java Spring Boot — from performance optimization to CI/CD deployment across healthcare and fintech products.",
+    "Software engineer with 2+ years shipping web applications with React.js, TypeScript, Node.js, and Java Spring Boot. From performance optimization to CI/CD deployment across healthcare and fintech products.",
   location: "India",
   email: "workxayush@gmail.com",
   linkedin: "https://linkedin.com/in/awhyush",
@@ -84,13 +84,22 @@ export const skills: { category: string; items: string[] }[] = [
   },
 ];
 
-export const experience: {
-  role: string;
-  company: string;
+export type ExperienceRole = {
+  title: string;
   period: string;
   points: string[];
+};
+
+export type Experience = {
+  company: string;
+  period: string;
   stack?: string[];
-}[] = [
+} & (
+  | { role: string; points: string[]; roles?: undefined }
+  | { role?: undefined; points?: undefined; roles: ExperienceRole[] }
+);
+
+export const experience: Experience[] = [
   {
     role: "Software Development Engineer",
     company: "Bajaj Finserv Health",
@@ -117,25 +126,35 @@ export const experience: {
     ],
   },
   {
-    role: "Software Development Engineer",
     company: "Credmudra / Nidavellirs",
-    period: "Jun 2024 — Dec 2024",
-    points: [
-      "Built a mobile-first UI with React.js and Tailwind CSS, increasing mobile engagement by 60%.",
-      "Implemented JWT/OAuth authentication supporting 1,000+ concurrent user sessions per month.",
-      "Set up Jenkins CI/CD pipelines, cutting deployment time by 50%.",
+    period: "Jan 2024 — Dec 2024",
+    roles: [
+      {
+        title: "Software Development Engineer",
+        period: "Jun 2024 — Dec 2024",
+        points: [
+          "Built a mobile-first UI with React.js and Tailwind CSS, increasing mobile engagement by 60%.",
+          "Implemented JWT/OAuth authentication supporting 1,000+ concurrent user sessions per month.",
+          "Set up Jenkins CI/CD pipelines, cutting deployment time by 50%.",
+        ],
+      },
+      {
+        title: "Frontend Development Engineer, Internship",
+        period: "Jan 2024 — Jun 2024",
+        points: [
+          "Built a QR-based link platform that scaled to 500+ active links within 2 months.",
+          "Built analytics dashboards using eCharts and Firebase for link performance tracking.",
+        ],
+      },
     ],
-    stack: ["React.js", "Tailwind CSS", "MongoDB", "Firebase", "Jenkins"],
-  },
-  {
-    role: "Frontend Development Engineer, Internship",
-    company: "Credmudra / Nidavellirs",
-    period: "Jan 2024 — Jun 2024",
-    points: [
-      "Built a QR-based link platform that scaled to 500+ active links within 2 months.",
-      "Built analytics dashboards using eCharts and Firebase for link performance tracking.",
+    stack: [
+      "React.js",
+      "Tailwind CSS",
+      "MongoDB",
+      "Firebase",
+      "Jenkins",
+      "eCharts",
     ],
-    stack: ["React.js", "eCharts", "Firebase"],
   },
 ];
 

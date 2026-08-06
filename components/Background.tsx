@@ -1,6 +1,6 @@
 export default function Background() {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none">
+    <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a0505] to-black" />
       <div className="absolute top-0 left-0 w-px h-px bg-transparent stars-1 animate-[animStar_50s_linear_infinite]" />
       <div className="absolute top-0 left-0 w-0.5 h-0.5 bg-transparent stars-2 animate-[animStar_80s_linear_infinite]" />
