@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import Background from "@/components/Background";
 import ResumeOverlay from "@/components/ResumeOverlay";
+import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { profile } from "@/lib/data";
 import { siteUrl, siteName } from "@/lib/site";
 import "./globals.css";
@@ -84,25 +85,34 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${inter.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-white font-inter selection-red relative overflow-x-hidden">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground font-inter selection-red relative overflow-x-hidden">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-200 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-black"
-        >
-          Skip to content
-        </a>
-        <Background />
-        <div className="gradient-blur" aria-hidden="true" />
-        <ResumeOverlay />
-        <div className="relative z-10 flex min-h-full flex-1 flex-col">
-          {children}
-        </div>
+        <ThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-200 focus:rounded-full focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-background"
+          >
+            Skip to content
+          </a>
+          <Background />
+          <div className="gradient-blur" aria-hidden="true" />
+          <ResumeOverlay />
+          <div className="relative z-10 flex min-h-full flex-1 flex-col">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
