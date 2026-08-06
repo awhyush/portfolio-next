@@ -1,15 +1,14 @@
 export const profile = {
-  name: "Your Name",
-  role: "Full-Stack Software Engineer",
-  tagline: "I build fast, reliable web apps end to end — from database schema to pixel-perfect UI.",
-  location: "Remote",
-  email: "you@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  name: "ayush sharma",
+  role: "Software Engineer · Full-Stack Developer",
+  tagline:
+    "Software engineer with 2+ years shipping web applications with React.js, TypeScript, Node.js, and Java Spring Boot. From performance optimization to CI/CD deployment across healthcare and fintech products.",
+  location: "India",
+  email: "workxayush@gmail.com",
+  linkedin: "https://linkedin.com/in/awhyush",
   resumeUrl: "/resume.pdf",
   bio: [
-    "I'm a software engineer who enjoys turning ambiguous problems into shipped products. My focus is full-stack web development — React/Next.js on the front, Node/Postgres on the back — with a bias toward simple, maintainable solutions over clever ones.",
-    "Outside of work I like reading about distributed systems, contributing to small open-source tools, and writing about what I learn along the way.",
+    "Software Engineer with 2+ years of experience building and shipping web applications using React.js, TypeScript, Node.js, and Java Spring Boot. Skilled in data structures and algorithms, API development, system performance optimization, automated testing, and CI/CD deployment across healthcare and fintech products.",
   ],
 };
 
@@ -18,93 +17,155 @@ export type Project = {
   title: string;
   description: string;
   tags: string[];
-  href: string;
-  repo: string;
-  featured?: boolean;
+  points: string[];
 };
 
 export const projects: Project[] = [
   {
-    slug: "orbit",
-    title: "Orbit — Team Task Tracker",
-    description:
-      "A Kanban-style task tracker with real-time updates, built to explore optimistic UI and WebSocket sync at small scale.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "WebSockets"],
-    href: "#",
-    repo: "#",
-    featured: true,
-  },
-  {
-    slug: "pixelforge",
-    title: "PixelForge — Image Processing API",
-    description:
-      "A serverless image transformation API (resize, crop, format conversion) with on-the-fly caching at the edge.",
-    tags: ["Node.js", "AWS Lambda", "S3", "CloudFront"],
-    href: "#",
-    repo: "#",
-    featured: true,
-  },
-  {
-    slug: "ledgerly",
-    title: "Ledgerly — Personal Finance Dashboard",
-    description:
-      "A self-hosted expense tracker with CSV import, category rules, and monthly spend visualizations.",
-    tags: ["React", "Express", "SQLite", "Chart.js"],
-    href: "#",
-    repo: "#",
-  },
-  {
-    slug: "notegraph",
-    title: "NoteGraph — Linked Notes App",
-    description:
-      "A Markdown notes app with bidirectional linking and a force-directed graph view of note connections.",
-    tags: ["Next.js", "Prisma", "D3.js"],
-    href: "#",
-    repo: "#",
+    slug: "metrofy",
+    title: "Metrofy",
+    description: "Metro route prediction web app for non-metro cities.",
+    tags: ["React.js", "Leaflet.js", "Redux Toolkit", "CSS"],
+    points: [
+      "Built route-finding using Dijkstra's and Nearest Neighbor algorithms across 100+ mapped locations.",
+      "Built an interactive map with geolocation-based view adjustments using Leaflet.js.",
+    ],
   },
 ];
 
 export const skills: { category: string; items: string[] }[] = [
   {
     category: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "SQL"],
+    items: ["Java", "JavaScript", "TypeScript"],
   },
   {
     category: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "Redux"],
+    items: [
+      "React.js",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "HTML5",
+      "CSS3",
+      "WCAG Accessibility",
+    ],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "REST APIs", "GraphQL"],
+    items: [
+      "Spring Boot",
+      "Node.js",
+      "REST APIs",
+      "Microservices",
+      "API Development",
+    ],
   },
   {
-    category: "Data & Infra",
-    items: ["PostgreSQL", "Redis", "Docker", "AWS"],
+    category: "Tools",
+    items: [
+      "MongoDB",
+      "PostgreSQL",
+      "CI/CD",
+      "CDN",
+      "Nginx",
+      "Git",
+      "Webpack",
+      "Jest",
+    ],
+  },
+  {
+    category: "Core Concepts",
+    items: [
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "System Design",
+      "SDLC",
+      "Agile/Scrum",
+    ],
   },
 ];
 
-export const experience: {
-  role: string;
-  company: string;
+export type ExperienceRole = {
+  title: string;
   period: string;
   points: string[];
-}[] = [
+};
+
+export type Experience = {
+  company: string;
+  period: string;
+  stack?: string[];
+} & (
+  | { role: string; points: string[]; roles?: undefined }
+  | { role?: undefined; points?: undefined; roles: ExperienceRole[] }
+);
+
+export const experience: Experience[] = [
   {
-    role: "Software Engineer",
-    company: "Acme Technologies",
-    period: "2023 — Present",
+    role: "Software Development Engineer",
+    company: "Bajaj Finserv Health",
+    period: "Jan 2025 — Present",
     points: [
-      "Led migration of a legacy monolith to a modular Next.js + API service architecture.",
-      "Built internal tooling that cut deployment time by 40%.",
+      "Reduced initial page load time by 3+ seconds for 100K+ users through code splitting, lazy loading, and bundle optimization.",
+      "Built a CDN-based static asset delivery pipeline, cutting asset load times by 30%.",
+      "Built a Design Language System adopted across 4+ internal products, increasing UI development speed by 40%.",
+      "Built an analytics service to track preauths and shortfalls with reason-level breakdowns, reducing overall shortfall.",
+      "Added Jest-based unit testing across the frontend, reducing production bugs.",
+      "Built a parameter-based release system for UAT, enabling parallel testing without additional deployments.",
+      "Built a date-based versioning system on production enabling instant rollbacks via a release pointer change, removing the need for full Docker image redeployments.",
+    ],
+    stack: [
+      "React.js",
+      "TypeScript",
+      "Java",
+      "Spring Boot",
+      "Node.js",
+      "Nginx",
+      "REST APIs",
+      "CDN",
+      "Jest",
     ],
   },
   {
-    role: "Software Engineer Intern",
-    company: "Bright Labs",
-    period: "2022 — 2023",
-    points: [
-      "Shipped a customer-facing analytics dashboard used by 500+ accounts.",
-      "Wrote integration tests that reduced regression bugs by a third.",
+    company: "Credmudra / Nidavellirs",
+    period: "Jan 2024 — Dec 2024",
+    roles: [
+      {
+        title: "Software Development Engineer",
+        period: "Jun 2024 — Dec 2024",
+        points: [
+          "Built a mobile-first UI with React.js and Tailwind CSS, increasing mobile engagement by 60%.",
+          "Implemented JWT/OAuth authentication supporting 1,000+ concurrent user sessions per month.",
+          "Set up Jenkins CI/CD pipelines, cutting deployment time by 50%.",
+        ],
+      },
+      {
+        title: "Frontend Development Engineer, Internship",
+        period: "Jan 2024 — Jun 2024",
+        points: [
+          "Built a QR-based link platform that scaled to 500+ active links within 2 months.",
+          "Built analytics dashboards using eCharts and Firebase for link performance tracking.",
+        ],
+      },
+    ],
+    stack: [
+      "React.js",
+      "Tailwind CSS",
+      "MongoDB",
+      "Firebase",
+      "Jenkins",
+      "eCharts",
     ],
   },
+];
+
+export const education = {
+  school: "University Institute of Technology, RGPV, Bhopal",
+  degree: "B.Tech",
+  period: "2020 — 2024",
+  detail: "CPI: 8.04/10",
+};
+
+export const achievements: string[] = [
+  'Awarded "Sharp Shark" at Bajaj Finserv Health for performance optimization and frontend architecture contributions.',
+  "Solved 400+ problems on LeetCode, GeeksforGeeks, and other competitive programming platforms.",
 ];

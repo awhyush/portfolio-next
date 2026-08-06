@@ -1,0 +1,98 @@
+\documentclass[10.5pt,letterpaper]{article}
+
+\usepackage[margin=0.6in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\pagestyle{empty}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\newcommand{\resumeItem}[1]{\item[--] #1}
+\newenvironment{resumeItemize}{\begin{itemize}[leftmargin=*,itemsep=1pt,topsep=2pt,parsep=0pt]}{\end{itemize}}
+
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ------ Header ------
+\begin{center}
+    {\LARGE \textbf{Ayush Sharma}}\\[3pt]
+    +91-6266492943 \quad|\quad
+    \href{mailto:workxayush@gmail.com}{workxayush@gmail.com} \quad|\quad
+    \href{https://linkedin.com/in/awhyush}{linkedin.com/in/awhyush} \quad|\quad
+    \href{https://awhyush.netlify.app}{awhyush.netlify.app}\\[1pt]
+    Software Engineer | Full Stack Developer
+\end{center}
+
+% ------ Professional Summary ------
+\section*{Professional Summary}
+Software Engineer with 2+ years of experience building and shipping web applications using React.js, TypeScript, Node.js, and Java Spring Boot. Skilled in data structures and algorithms, API development, system performance optimization, automated testing, and CI/CD deployment across healthcare and fintech products.
+
+% ------ Work Experience ------
+\section*{Work Experience}
+
+\textbf{Bajaj Finserv Health} \hfill Jan 2025 -- Present \\
+\textit{Software Development Engineer}
+\begin{resumeItemize}
+    \resumeItem{Reduced initial page load time by 3+ seconds for 100K+ users through code splitting, lazy loading, and bundle optimization.}
+    \resumeItem{Built a CDN-based static asset delivery pipeline, cutting asset load times by 30\%.}
+    \resumeItem{Built a Design Language System adopted across 4+ internal products, increasing UI development speed by 40\%.}
+    \resumeItem{Built an analytics service to track preauths and shortfalls with reason-level breakdowns, reducing overall shortfall.}
+    \resumeItem{Added Jest-based unit testing across the frontend, reducing production bugs.}
+    \resumeItem{Built a parameter-based release system for UAT, enabling parallel testing without additional deployments.}
+    \resumeItem{Built a date-based versioning system on production enabling instant rollbacks via a release pointer change, removing the need for full Docker image redeployments.}
+\end{resumeItemize}
+\textit{\small React.js, TypeScript, Java, Spring Boot, Node.js, Nginx, REST APIs, CDN, Jest}
+
+\vspace{4pt}
+\textbf{Credmudra / Nidavellirs} \hfill Jan 2024 -- Dec 2024 \\
+\textit{Software Development Engineer} (Jun 2024 -- Dec 2024)
+\begin{resumeItemize}
+    \resumeItem{Built a mobile-first UI with React.js and Tailwind CSS, increasing mobile engagement by 60\%.}
+    \resumeItem{Implemented JWT/OAuth authentication supporting 1,000+ concurrent user sessions per month.}
+    \resumeItem{Set up Jenkins CI/CD pipelines, cutting deployment time by 50\%.}
+\end{resumeItemize}
+\textit{Frontend Development Engineer, Internship} (Jan 2024 -- Jun 2024)
+\begin{resumeItemize}
+    \resumeItem{Built a QR-based link platform that scaled to 500+ active links within 2 months.}
+    \resumeItem{Built analytics dashboards using eCharts and Firebase for link performance tracking.}
+\end{resumeItemize}
+\textit{\small React.js, Tailwind CSS, MongoDB, Firebase, eCharts, Jenkins, REST APIs}
+
+% ------ Projects ------
+\section*{Projects}
+\textbf{Metrofy} -- Metro route prediction web app for non-metro cities
+\begin{resumeItemize}
+    \resumeItem{Built route-finding using Dijkstra's and Nearest Neighbor algorithms across 100+ mapped locations.}
+    \resumeItem{Built an interactive map with geolocation-based view adjustments using Leaflet.js.}
+\end{resumeItemize}
+\textit{\small React.js, Leaflet.js, Redux Toolkit, CSS}
+
+% ------ Technical Skills ------
+\section*{Technical Skills}
+\begin{itemize}[leftmargin=*,itemsep=1pt,topsep=2pt,parsep=0pt]
+    \item \textbf{Languages:} Java, JavaScript, TypeScript
+    \item \textbf{Frontend:} React.js, Redux Toolkit, Tailwind CSS, HTML5, CSS3, WCAG Accessibility
+    \item \textbf{Backend:} Spring Boot, Spring WebFlux, Node.js, REST APIs, Microservices, API Development
+    \item \textbf{Tools:} MongoDB, Firebase, Jenkins, CI/CD, CDN, Nginx, Git, Version Control, Webpack, Jest, Unit Testing, Figma
+    \item \textbf{Core Concepts:} Data Structures and Algorithms, Object-Oriented Programming, System Design, Software Development Life Cycle, Agile/Scrum
+\end{itemize}
+
+% ------ Education ------
+\section*{Education}
+\textbf{B.Tech, University Institute of Technology, RGPV, Bhopal} \hfill 2020 -- 2024 \\
+CPI: 8.04/10
+
+% ------ Key Achievements ------
+\section*{Key Achievements}
+\begin{resumeItemize}
+    \resumeItem{Awarded "Sharp Shark" at Bajaj Finserv Health for performance optimization and frontend architecture contributions.}
+    \resumeItem{Solved 400+ problems on LeetCode, GeeksforGeeks, and other competitive programming platforms.}
+\end{resumeItemize}
+
+\end{document}

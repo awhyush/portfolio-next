@@ -1,14 +1,78 @@
 import { profile } from "@/lib/data";
 
+const platformLinks = [
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+
+const elsewhereLinks = [
+  { href: profile.linkedin, label: "LinkedIn" },
+  { href: `mailto:${profile.email}`, label: "Email" },
+  { href: "#resume-viewer", label: "Resume" },
+];
+
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-black/10 dark:border-white/10">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 px-6 py-8 text-sm text-foreground/50 sm:flex-row sm:justify-between">
+    <footer className="mt-auto border-t border-zinc-900 pt-20 pb-10 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-24 relative z-10">
+        <div className="md:col-span-2">
+          <div className="flex items-center gap-2 mb-6">
+            <div className="w-5 h-5 bg-[#ef233c] rounded-sm rotate-45" aria-hidden="true" />
+            <span className="text-2xl font-bold font-manrope tracking-tight">
+              {profile.name}
+            </span>
+          </div>
+          <p className="text-zinc-500 max-w-xs leading-relaxed">
+            {profile.role} based in {profile.location}, building fast and
+            reliable web apps end to end.
+          </p>
+        </div>
+
+        <nav aria-label="Footer site links">
+          <h4 className="text-xs font-bold text-[#ef233c] uppercase tracking-widest mb-6">
+            Site
+          </h4>
+          <ul className="space-y-4 text-zinc-400 text-sm">
+            {platformLinks.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="hover:text-white transition-colors">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Footer contact links">
+          <h4 className="text-xs font-bold text-[#ef233c] uppercase tracking-widest mb-6">
+            Elsewhere
+          </h4>
+          <ul className="space-y-4 text-zinc-400 text-sm">
+            {elsewhereLinks.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="hover:text-white transition-colors">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <div className="flex justify-center items-center py-10 opacity-20 pointer-events-none" aria-hidden="true">
+        <p className="text-[15vw] leading-none font-bold font-manrope tracking-tighter text-stroke select-none">
+          {profile.name.toUpperCase()}
+        </p>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 border-t border-zinc-900 pt-8 flex flex-col md:flex-row items-center justify-between text-zinc-500 text-[10px] uppercase tracking-widest">
         <p>
           &copy; {new Date().getFullYear()} {profile.name}. Built with
           Next.js.
         </p>
-        <p className="font-mono text-xs">v0.1.0</p>
+        <p className="mt-4 md:mt-0">v0.2.0 · red-noir</p>
       </div>
     </footer>
   );
