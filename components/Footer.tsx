@@ -15,29 +15,29 @@ const elsewhereLinks = [
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-zinc-900 pt-20 pb-10 relative overflow-hidden">
+    <footer className="mt-auto border-t border-border pt-20 pb-10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-24 relative z-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2 mb-6">
-            <div className="w-5 h-5 bg-[#ef233c] rounded-sm rotate-45" aria-hidden="true" />
+            <div className="w-5 h-5 bg-accent rounded-sm rotate-45" aria-hidden="true" />
             <span className="text-2xl font-bold font-manrope tracking-tight">
               {profile.name}
             </span>
           </div>
-          <p className="text-zinc-500 max-w-xs leading-relaxed">
+          <p className="text-subtle max-w-xs leading-relaxed">
             {profile.role} based in {profile.location}, building fast and
             reliable web apps end to end.
           </p>
         </div>
 
         <nav aria-label="Footer site links">
-          <h4 className="text-xs font-bold text-[#ef233c] uppercase tracking-widest mb-6">
+          <h4 className="text-xs font-bold text-accent uppercase tracking-widest mb-6">
             Site
           </h4>
-          <ul className="space-y-4 text-zinc-400 text-sm">
+          <ul className="space-y-4 text-muted text-sm">
             {platformLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="hover:text-white transition-colors">
+                <a href={link.href} className="hover:text-foreground transition-colors">
                   {link.label}
                 </a>
               </li>
@@ -46,13 +46,13 @@ export default function Footer() {
         </nav>
 
         <nav aria-label="Footer contact links">
-          <h4 className="text-xs font-bold text-[#ef233c] uppercase tracking-widest mb-6">
+          <h4 className="text-xs font-bold text-accent uppercase tracking-widest mb-6">
             Elsewhere
           </h4>
-          <ul className="space-y-4 text-zinc-400 text-sm">
+          <ul className="space-y-4 text-muted text-sm">
             {elsewhereLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="hover:text-white transition-colors">
+                <a href={link.href} className="hover:text-foreground transition-colors">
                   {link.label}
                 </a>
               </li>
@@ -67,7 +67,7 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 border-t border-zinc-900 pt-8 flex flex-col md:flex-row items-center justify-between text-zinc-500 text-[10px] uppercase tracking-widest">
+      <div className="max-w-7xl mx-auto px-6 border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between text-subtle text-[10px] uppercase tracking-widest">
         <p>
           &copy; {new Date().getFullYear()} {profile.name}. Built with
           Next.js.

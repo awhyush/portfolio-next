@@ -1,12 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --accent-red: #ef233c;
-  --accent-red-glow: rgba(239, 35, 60, 0.5);
+  color-scheme: dark;
+
+  --background: #000000;
+  --background-elevated: #18181b;
+  --foreground: #ffffff;
+  --muted: #a1a1aa;
+  --subtle: #71717a;
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-strong: rgba(255, 255, 255, 0.1);
+  --backdrop: rgba(0, 0, 0, 0.6);
+  --backdrop-strong: rgba(0, 0, 0, 0.9);
+  --stars-color: rgba(255, 255, 255, 0.9);
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --stroke-color: rgba(255, 255, 255, 0.12);
+  --vignette: rgba(0, 0, 0, 0.8);
+
+  --accent: #ef233c;
+  --accent-foreground: #ffffff;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #ffffff;
+  --background-elevated: #f4f4f5;
+  --foreground: #0a0a0a;
+  --muted: #52525b;
+  --subtle: #71717a;
+  --border-soft: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.2);
+  --surface: rgba(0, 0, 0, 0.04);
+  --surface-strong: rgba(0, 0, 0, 0.08);
+  --backdrop: rgba(255, 255, 255, 0.7);
+  --backdrop-strong: rgba(255, 255, 255, 0.92);
+  --stars-color: rgba(0, 0, 0, 0.15);
+  --grid-line: rgba(0, 0, 0, 0.035);
+  --stroke-color: rgba(0, 0, 0, 0.1);
+  --vignette: rgba(255, 255, 255, 0.85);
 }
 
 @theme inline {
   --font-sans: var(--font-inter);
+  --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border-soft);
+  --color-border-strong: var(--border-strong);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-backdrop: var(--backdrop);
+  --color-backdrop-strong: var(--backdrop-strong);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 }
 
 @property --gradient-angle {
@@ -69,6 +120,24 @@
   font-family: var(--font-inter), sans-serif;
 }
 
+/* Ambient page wash, tinted by the selected accent color */
+.bg-ambient {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--accent) 16%, var(--background)),
+    var(--background)
+  );
+}
+
+/* Faint dot-grid backdrop */
+.bg-grid-lines {
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
 /* Shiny CTA button */
 .shiny-cta {
   --gradient-angle: 0deg;
@@ -77,13 +146,13 @@
   border-radius: 9999px;
   padding: 1rem 2.5rem;
   background:
-    linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(var(--background), var(--background)) padding-box,
     conic-gradient(
         from var(--gradient-angle),
         transparent 0%,
-        #ef233c 5%,
-        #ef233c 15%,
-        #ef233c 30%,
+        var(--accent) 5%,
+        var(--accent) 15%,
+        var(--accent) 30%,
         transparent 40%,
         transparent 100%
       )
@@ -98,39 +167,40 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, white 0.5px, transparent 0);
+  background: radial-gradient(circle at 50% 50%, currentColor 0.5px, transparent 0);
   background-size: 4px 4px;
   opacity: 0.1;
   z-index: 0;
+  color: var(--foreground);
 }
 
 /* Parallax stars */
 .stars-1 {
   box-shadow:
-    234px 124px #fff,
-    654px 345px #fff,
-    876px 12px #fff,
-    1200px 800px #fff,
-    400px 1500px #fff,
-    1800px 200px #fff,
-    100px 1000px #fff,
-    900px 1900px #fff,
-    500px 600px #fff,
-    1400px 100px #fff,
-    300px 400px #fff,
-    1600px 1200px #fff;
+    234px 124px var(--stars-color),
+    654px 345px var(--stars-color),
+    876px 12px var(--stars-color),
+    1200px 800px var(--stars-color),
+    400px 1500px var(--stars-color),
+    1800px 200px var(--stars-color),
+    100px 1000px var(--stars-color),
+    900px 1900px var(--stars-color),
+    500px 600px var(--stars-color),
+    1400px 100px var(--stars-color),
+    300px 400px var(--stars-color),
+    1600px 1200px var(--stars-color);
 }
 
 .stars-2 {
   box-shadow:
-    123px 456px #fff,
-    789px 234px #fff,
-    456px 890px #fff,
-    1100px 300px #fff,
-    200px 1200px #fff,
-    1500px 500px #fff,
-    600px 1700px #fff,
-    1300px 900px #fff;
+    123px 456px var(--stars-color),
+    789px 234px var(--stars-color),
+    456px 890px var(--stars-color),
+    1100px 300px var(--stars-color),
+    200px 1200px var(--stars-color),
+    1500px 500px var(--stars-color),
+    600px 1700px var(--stars-color),
+    1300px 900px var(--stars-color);
 }
 
 .gradient-blur {
@@ -139,18 +209,18 @@
   inset: 0 0 auto 0;
   height: 120px;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+  background: linear-gradient(to bottom, var(--vignette), transparent);
   backdrop-filter: blur(8px);
   mask-image: linear-gradient(to bottom, black, transparent);
 }
 
 .selection-red::selection {
-  background: var(--accent-red);
-  color: white;
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
 .text-stroke {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  -webkit-text-stroke: 1px var(--stroke-color);
   color: transparent;
 }
 
@@ -165,7 +235,7 @@
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--accent-red);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
