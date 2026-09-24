@@ -1,39 +1,67 @@
-import { User, Briefcase, GraduationCap, Trophy } from "lucide-react";
+import { Briefcase, GraduationCap, Trophy } from "lucide-react";
 import { profile, experience, education, achievements } from "@/lib/data";
 
 export default function About() {
   return (
     <section id="about" className="scroll-mt-24 py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center max-w-3xl mx-auto animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight font-manrope mb-6">
-            The person behind <br />
-            <span className="text-accent">the code</span>
+        <div className="mb-16 max-w-3xl animate-fade-up">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9]">
+            The person <br />
+            behind <span className="text-accent">the code.</span>
           </h2>
         </div>
 
+        {/* Benefits-style bento pair */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-4">
-          <div className="lg:col-span-2 group relative overflow-hidden p-8 border border-border bg-linear-to-b from-background-elevated/50 to-background hover:border-border-strong transition-all rounded-xl">
-            <div className="mb-6 inline-flex p-3 rounded-lg bg-surface border border-border text-accent">
-              <User className="w-6 h-6" aria-hidden="true" />
-            </div>
+          <div className="lg:col-span-2 rounded-3xl bg-background-elevated p-8 md:p-10">
+            <p className="text-3xl md:text-4xl font-black tracking-tighter leading-[0.95] text-foreground">
+              2+ years.{" "}
+              <span className="text-muted">
+                Shipping real products across healthcare and fintech.
+              </span>
+            </p>
             {profile.bio.map((paragraph) => (
               <p
                 key={paragraph.slice(0, 20)}
-                className="mb-4 text-lg leading-relaxed text-muted last:mb-0"
+                className="mt-6 text-base leading-relaxed text-muted"
               >
                 {paragraph}
               </p>
             ))}
           </div>
 
-          <div className="lg:col-span-3 group relative overflow-hidden p-8 border border-border bg-background hover:border-border-strong transition-all rounded-xl">
+          <div className="lg:col-span-3 relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500/15 via-background-elevated to-blue-500/15 border border-border p-8 md:p-10">
+            <div className="relative z-10">
+              <p className="text-xs font-bold uppercase tracking-widest text-subtle mb-4">
+                Impact at a glance
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <p className="text-4xl md:text-5xl font-black tracking-tighter">3s+</p>
+                  <p className="mt-1 text-sm text-muted">Faster initial page load for 100K+ users</p>
+                </div>
+                <div>
+                  <p className="text-4xl md:text-5xl font-black tracking-tighter">40%</p>
+                  <p className="mt-1 text-sm text-muted">Faster UI development via a shared design system</p>
+                </div>
+              </div>
+            </div>
+            <span
+              className="animate-float absolute right-8 top-8 badge-float text-sm"
+              aria-hidden="true"
+            >
+              {education.detail}
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-4">
+          <div className="lg:col-span-3 rounded-3xl bg-background-elevated p-8">
             <div className="mb-6 inline-flex p-3 rounded-lg bg-surface border border-border text-accent">
               <Briefcase className="w-6 h-6" aria-hidden="true" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground font-manrope mb-6">
-              Experience
-            </h3>
+            <h3 className="text-xl font-bold mb-6">Experience</h3>
             <ol className="space-y-8 border-l border-border pl-5">
               {experience.map((job) => (
                 <li key={job.company + job.period} className="relative">
@@ -87,38 +115,34 @@ export default function About() {
               ))}
             </ol>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
-          <div className="lg:col-span-2 group relative overflow-hidden p-8 border border-border bg-background hover:border-border-strong transition-all rounded-xl">
-            <div className="mb-4 inline-flex p-3 rounded-lg bg-surface border border-border text-accent">
-              <GraduationCap className="w-6 h-6" aria-hidden="true" />
+          <div className="lg:col-span-2 flex flex-col gap-4">
+            <div className="rounded-3xl bg-background-elevated p-8">
+              <div className="mb-4 inline-flex p-3 rounded-lg bg-surface border border-border text-accent">
+                <GraduationCap className="w-6 h-6" aria-hidden="true" />
+              </div>
+              <h3 className="text-lg font-bold mb-2">Education</h3>
+              <p className="text-sm font-medium text-foreground">{education.degree}</p>
+              <p className="text-sm text-subtle">
+                {education.school} · {education.period}
+              </p>
+              <p className="mt-1 text-sm text-muted">{education.detail}</p>
             </div>
-            <h3 className="text-lg font-semibold text-foreground font-manrope mb-2">
-              Education
-            </h3>
-            <p className="text-sm font-medium text-foreground">{education.degree}</p>
-            <p className="text-sm text-subtle">
-              {education.school} · {education.period}
-            </p>
-            <p className="mt-1 text-sm text-muted">{education.detail}</p>
-          </div>
 
-          <div className="lg:col-span-3 group relative overflow-hidden p-8 border border-border bg-background hover:border-border-strong transition-all rounded-xl">
-            <div className="mb-4 inline-flex p-3 rounded-lg bg-surface border border-border text-accent">
-              <Trophy className="w-6 h-6" aria-hidden="true" />
+            <div className="rounded-3xl bg-background-elevated p-8">
+              <div className="mb-4 inline-flex p-3 rounded-lg bg-surface border border-border text-accent">
+                <Trophy className="w-6 h-6" aria-hidden="true" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">Achievements</h3>
+              <ul className="space-y-2 text-sm text-muted">
+                {achievements.map((point) => (
+                  <li key={point.slice(0, 20)} className="flex gap-2">
+                    <span className="text-accent" aria-hidden="true">—</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h3 className="text-lg font-semibold text-foreground font-manrope mb-3">
-              Achievements
-            </h3>
-            <ul className="space-y-2 text-sm text-muted">
-              {achievements.map((point) => (
-                <li key={point.slice(0, 20)} className="flex gap-2">
-                  <span className="text-accent" aria-hidden="true">—</span>
-                  {point}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

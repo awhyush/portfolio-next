@@ -5,59 +5,40 @@ const toolStrip = skills.flatMap((group) => group.items);
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center pt-40 pb-20 px-6">
-      <div className="text-center max-w-5xl mx-auto">
+    <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-32 pb-16 bg-radial-editorial">
+      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center text-center">
         <div
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface border border-border backdrop-blur-md mb-8 animate-fade-up"
+          className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 backdrop-blur-md animate-fade-up"
           style={{ animationDelay: "0.1s" }}
         >
           <span className="relative flex h-2 w-2" aria-hidden="true">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
           </span>
-          <span className="text-xs font-medium text-foreground/80 tracking-wide font-manrope">
+          <span className="text-xs font-medium tracking-wide text-foreground/80">
             Open to new opportunities
           </span>
-          <ArrowRight className="w-3 h-3 text-accent" aria-hidden="true" />
         </div>
 
         <h1
-          className="text-6xl md:text-8xl font-semibold tracking-tighter font-manrope leading-[1.1] mb-8 animate-fade-up"
+          className="animate-fade-up text-[13vw] leading-[0.85] font-black tracking-tighter md:text-[12vw]"
           style={{ animationDelay: "0.2s" }}
         >
-          <span className="block text-transparent bg-clip-text bg-linear-to-b from-foreground via-foreground to-foreground/40">
-            {profile.name}
-          </span>
-          <span className="block text-transparent bg-clip-text bg-linear-to-b from-foreground via-foreground to-foreground/40">
-            builds for the{" "}
-            <span className="text-accent inline-block relative">
-              real world
-              <svg
-                className="absolute w-full h-3 -bottom-2 left-0 text-accent opacity-60"
-                viewBox="0 0 100 10"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M0 5 Q 50 10 100 5"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                />
-              </svg>
-            </span>
-          </span>
+          {profile.name}
         </h1>
 
         <p
-          className="text-xl md:text-2xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-up"
+          className="animate-fade-up mt-4 text-[6vw] leading-[0.95] font-semibold tracking-tighter text-muted md:text-[4vw]"
           style={{ animationDelay: "0.3s" }}
         >
-          {profile.tagline}
+          builds for the{" "}
+          <span className="relative inline-block text-accent">
+            real world
+          </span>
         </p>
 
         <div
-          className="flex flex-col md:flex-row items-center justify-center gap-6 animate-fade-up"
+          className="animate-fade-up mx-auto mt-10 flex flex-col items-center gap-6 md:flex-row md:justify-center"
           style={{ animationDelay: "0.4s" }}
         >
           <a href="#projects" className="shiny-cta group">
@@ -69,7 +50,7 @@ export default function Hero() {
 
           <a
             href="#resume-viewer"
-            className="group px-8 py-4 rounded-full bg-background-elevated border border-border-strong text-muted font-medium hover:text-foreground hover:bg-surface-strong transition-all flex items-center gap-2"
+            className="btn-invert group flex items-center gap-2 rounded-full px-8 py-4 font-medium"
           >
             <FileText className="w-5 h-5" aria-hidden="true" />
             View resume
@@ -77,8 +58,21 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="w-full max-w-5xl mt-32 border-y border-border bg-surface backdrop-blur-sm py-10 rounded-2xl">
-        <p className="text-center text-sm font-bold tracking-widest text-subtle uppercase mb-6">
+      <div className="relative z-10 mx-auto mt-16 flex w-full max-w-6xl flex-col items-center justify-between gap-6 border-t border-border pt-8 text-sm md:flex-row animate-fade-up">
+        <div className="text-center md:text-left">
+          <p className="text-muted">{profile.role}</p>
+          <p className="text-subtle">Based in {profile.location}</p>
+        </div>
+        <a
+          href={`mailto:${profile.email}`}
+          className="group border-b border-border-strong pb-0.5 font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+        >
+          {profile.email}
+        </a>
+      </div>
+
+      <div className="mx-auto mt-16 w-full max-w-5xl rounded-2xl border-y border-border bg-surface py-10 backdrop-blur-sm">
+        <p className="mb-6 text-center text-sm font-bold uppercase tracking-widest text-subtle">
           Tools I reach for
         </p>
         <p className="sr-only">{toolStrip.join(", ")}</p>

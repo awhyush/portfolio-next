@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import Background from "@/components/Background";
+import Dock from "@/components/Dock";
 import ResumeOverlay from "@/components/ResumeOverlay";
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { profile } from "@/lib/data";
 import { siteUrl, siteName } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["200", "400", "600", "700", "800"],
+const satoshi = localFont({
+  variable: "--font-satoshi",
+  src: "./fonts/Satoshi-Variable.woff2",
+  weight: "300 900",
+  style: "normal",
+  display: "swap",
 });
 
 const title = `${profile.name} — ${profile.role}`;
@@ -87,14 +84,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${inter.variable} ${manrope.variable} h-full antialiased`}
+      className={`${satoshi.variable} h-full antialiased`}
     >
       <head>
         <script
           dangerouslySetInnerHTML={{ __html: themeInitScript }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground font-inter selection-red relative overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans selection-red relative overflow-x-hidden">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
@@ -109,9 +106,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Background />
           <div className="gradient-blur" aria-hidden="true" />
           <ResumeOverlay />
-          <div className="relative z-10 flex min-h-full flex-1 flex-col">
+          <div className="relative z-10 flex min-h-full flex-1 flex-col pb-28">
             {children}
           </div>
+          <Dock />
         </ThemeProvider>
       </body>
     </html>

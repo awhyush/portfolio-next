@@ -1,67 +1,74 @@
-import { ExternalLink, LayoutGrid } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data";
 
 export default function Projects() {
   return (
     <section id="projects" className="scroll-mt-24 py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center max-w-3xl mx-auto animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight font-manrope mb-6">
-            Things I&apos;ve <span className="text-accent">built</span>
+        <div className="mb-16 max-w-3xl animate-fade-up">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9]">
+            Things I&apos;ve <span className="text-accent">built.</span>
           </h2>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-6">
-          {projects.map((project) => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-16">
+          {projects.map((project, index) => (
+            <a
               key={project.slug}
-              className="group relative overflow-hidden p-8 border border-border bg-linear-to-b from-background-elevated/50 to-background hover:border-border-strong transition-all rounded-xl"
+              href={project.url}
+              target={project.url ? "_blank" : undefined}
+              rel={project.url ? "noopener noreferrer" : undefined}
+              className={`group block ${index % 2 === 1 ? "md:mt-24" : ""}`}
             >
-              <div className="relative z-10">
-                <div className="mb-6 inline-flex p-3 rounded-lg bg-surface border border-border text-accent w-fit">
-                  <LayoutGrid className="w-6 h-6" aria-hidden="true" />
+              <div className="relative mb-6 aspect-video overflow-hidden rounded-2xl border border-border bg-background-elevated">
+                <div className="absolute inset-0 grayscale opacity-60 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105">
+                  <div className="absolute inset-0 bg-grid-lines" aria-hidden="true" />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-br from-accent/40 via-background-elevated to-background"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center px-6">
+                    <span className="text-center text-5xl md:text-6xl font-black tracking-tighter text-foreground/20">
+                      {project.title}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-3xl font-semibold text-foreground font-manrope mb-2 tracking-tight">
-                  {project.title}
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-zinc-400 hover:text-[#ef233c] transition-colors"
-                      aria-label={`Visit ${project.title}`}
-                    >
-                      <ExternalLink className="w-5 h-5" aria-hidden="true" />
-                    </a>
-                  )}
-                </h3>
-                <p className="text-muted text-lg leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <ul className="mb-6 space-y-2 text-muted">
-                  {project.points.map((point) => (
-                    <li key={point.slice(0, 20)} className="flex gap-2">
-                      <span className="text-accent" aria-hidden="true">—</span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-                <ul className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <li
-                      key={tag}
-                      className="rounded-full border border-border px-2.5 py-1 font-mono text-xs text-muted"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
               </div>
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none"
-                style={{ background: "radial-gradient(circle at top right, var(--accent), transparent 70%)" }}
-              />
-            </div>
+
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-subtle">
+                {project.tags[0]}
+              </p>
+              <h3 className="mb-2 flex items-center gap-2 text-3xl font-bold text-foreground">
+                {project.title}
+                {project.url && (
+                  <ExternalLink
+                    className="h-5 w-5 text-subtle transition-colors group-hover:text-accent"
+                    aria-hidden="true"
+                  />
+                )}
+              </h3>
+              <p className="mb-4 text-lg leading-relaxed text-muted">
+                {project.description}
+              </p>
+              <ul className="mb-6 space-y-2 text-muted">
+                {project.points.map((point) => (
+                  <li key={point.slice(0, 20)} className="flex gap-2">
+                    <span className="text-accent" aria-hidden="true">—</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <ul className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="rounded-full border border-border px-2.5 py-1 font-mono text-xs text-muted"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </a>
           ))}
         </div>
       </div>

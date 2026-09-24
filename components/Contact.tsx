@@ -9,7 +9,7 @@ export default function Contact() {
       className="scroll-mt-24 py-32 px-6 text-center bg-background-elevated/40"
     >
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-5xl md:text-7xl font-bold font-manrope mb-8 tracking-tighter">
+        <h2 className="text-[13vw] leading-[0.85] font-black tracking-tighter mb-8 md:text-8xl">
           Let&apos;s <span className="text-accent">build</span> something.
         </h2>
         <p className="text-xl text-muted mb-12">
@@ -26,7 +26,7 @@ export default function Contact() {
           </a>
           <a
             href={profile.linkedin}
-            className="group w-full sm:w-auto px-8 py-4 rounded-full bg-background-elevated border border-border-strong text-muted font-medium hover:text-foreground hover:bg-surface-strong transition-all flex items-center justify-center gap-2"
+            className="btn-invert group w-full sm:w-auto flex items-center justify-center gap-2 rounded-full px-8 py-4 font-medium"
           >
             <LinkedinIcon className="w-4 h-4" />
             LinkedIn

@@ -23,6 +23,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "lock-in",
+    title: "The Lock-In",
+    description:
+      "A habit tracker for a personal reset — daily plans, streaks, and accountability circles.",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "NextAuth", "TypeScript"],
+    points: [
+      "Built preset and fully custom goal plans (checkbox, duration, and counter tracking types), each with its own streak logic shared across server and client.",
+      "Built accountability Circles with per-member, per-circle visibility controls and streak-preserving nudges, all enforced server-side from the session.",
+    ],
+    url: "https://lockin-twin.vercel.app",
+  },
+  {
     slug: "metrofy",
     title: "Metrofy",
     description: "Metro route prediction web app for non-metro cities.",

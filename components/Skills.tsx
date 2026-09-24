@@ -41,9 +41,9 @@ export default function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-center max-w-3xl mx-auto animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight font-manrope mb-6">
-            What I work <span className="text-accent">with</span>
+        <div className="mb-16 max-w-3xl animate-fade-up">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9]">
+            What I work <span className="text-accent">with.</span>
           </h2>
         </div>
 
@@ -54,14 +54,14 @@ export default function Skills() {
             return (
               <div
                 key={group.category}
-                className={`group relative overflow-hidden p-6 border border-border bg-background transition-all rounded-xl ${style.border}`}
+                className={`group relative overflow-hidden rounded-2xl bg-background-elevated p-6 border border-transparent transition-all ${style.border}`}
               >
                 <div
                   className={`mb-4 inline-flex p-3 rounded-lg bg-surface border border-border ${style.text}`}
                 >
                   <Icon className="w-6 h-6" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground font-manrope mb-4">
+                <h3 className="text-lg font-bold mb-4">
                   {group.category}
                 </h3>
                 <ul className="flex flex-wrap gap-1.5">

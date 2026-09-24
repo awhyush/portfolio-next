@@ -13,15 +13,15 @@ export type ThemeMode = "light" | "dark";
 
 export const THEME_STORAGE_KEY = "px-theme";
 export const ACCENT_STORAGE_KEY = "px-accent";
-export const DEFAULT_ACCENT = "#ef233c";
+export const DEFAULT_ACCENT = "#FF6B50";
 
 export const ACCENT_PRESETS: { name: string; value: string }[] = [
+  { name: "Coral", value: "#FF6B50" },
   { name: "Crimson", value: "#ef233c" },
   { name: "Azure", value: "#3b82f6" },
   { name: "Amber", value: "#f59e0b" },
   { name: "Emerald", value: "#22c55e" },
   { name: "Violet", value: "#a855f7" },
-  { name: "Rose", value: "#ec4899" },
   { name: "Cyan", value: "#06b6d4" },
 ];
 
