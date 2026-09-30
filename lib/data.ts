@@ -18,6 +18,7 @@ export type Project = {
   description: string;
   tags: string[];
   points: string[];
+  image: string;
   url?: string;
 };
 
@@ -32,6 +33,7 @@ export const projects: Project[] = [
       "Built preset and fully custom goal plans (checkbox, duration, and counter tracking types), each with its own streak logic shared across server and client.",
       "Built accountability Circles with per-member, per-circle visibility controls and streak-preserving nudges, all enforced server-side from the session.",
     ],
+    image: "/projects/lock-in.png",
     url: "https://lockin-twin.vercel.app",
   },
   {
@@ -43,17 +45,8 @@ export const projects: Project[] = [
       "Built route-finding using Dijkstra's and Nearest Neighbor algorithms across 100+ mapped locations.",
       "Built an interactive map with geolocation-based view adjustments using Leaflet.js.",
     ],
+    image: "/projects/metrofy.png",
     url: "https://metrofy.netlify.app/",
-  },
-  {
-    slug: "ytayush",
-    title: "YTAyush",
-    description: "A YouTube clone built to practice and demonstrate React fundamentals.",
-    tags: ["React.js", "CSS"],
-    points: [
-      "Built as a personal learning project to explore React component architecture and state management.",
-    ],
-    url: "https://ytayush.netlify.app/",
   },
 ];
 

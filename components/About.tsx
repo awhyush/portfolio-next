@@ -47,12 +47,6 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <span
-              className="animate-float absolute right-8 top-8 badge-float text-sm"
-              aria-hidden="true"
-            >
-              {education.detail}
-            </span>
           </div>
         </div>
 

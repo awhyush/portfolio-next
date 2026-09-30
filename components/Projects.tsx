@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data";
 
@@ -21,18 +22,13 @@ export default function Projects() {
               className={`group block ${index % 2 === 1 ? "md:mt-24" : ""}`}
             >
               <div className="relative mb-6 aspect-video overflow-hidden rounded-2xl border border-border bg-background-elevated">
-                <div className="absolute inset-0 grayscale opacity-60 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105">
-                  <div className="absolute inset-0 bg-grid-lines" aria-hidden="true" />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-br from-accent/40 via-background-elevated to-background"
-                    aria-hidden="true"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center px-6">
-                    <span className="text-center text-5xl md:text-6xl font-black tracking-tighter text-foreground/20">
-                      {project.title}
-                    </span>
-                  </div>
-                </div>
+                <Image
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-top grayscale opacity-60 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                />
               </div>
 
               <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-subtle">
